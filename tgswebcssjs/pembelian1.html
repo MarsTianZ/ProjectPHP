@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <style>
+        
+        h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 20px;
+        }
+        table{
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            background-color:  #206bc2;
+            color: rgb(180, 221, 84);
+            text-align: center;
+            border: 1px solid #161616;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+
+        label[class=jumlah]{
+            margin-left: 450px;
+        }
+        label[class=total]{
+            margin-left: 40px;
+        }
+        button{
+            background: linear-gradient(45deg, rgb(117,202,206) 0%, rgb(85,164,114) 58%, rgb(17,148,197) 100%);
+            border: 1px solid aquamarine;
+            padding: 5px 7px;
+            margin: 3px;
+            color: azure;
+        }
+        .topnav a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+        }
+
+        table tfoot td[class=nama]{
+            border: none;
+        }
+        </style>
+</head>
+<body>
+    <table>
+        <h2>Rekap</h2>
+        <theader>
+        <tr>
+            <th>Kode</th>
+            <th>Supplier</th>
+            <th>Karyawan</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        </theader>
+        <tbody id="tbody">  
+        <tr>
+            <td>2023032704515</td>
+            <td>PTX</td>
+            <td>Adi</td>
+            <td>5</td>
+            <td>50000</td>
+            <td><button class="view">V</button></a></td>
+        </tr>
+        <tr>
+            <td>2023032704515</td>
+            <td>PTY</td>
+            <td>Adi</td>
+            <td>6</td>
+            <td>50000</td>
+            <td><button class="view">V</button></a></td>
+        </tr>
+        </tbody>
+        <tfoot border="0">
+            <td class="nama" colspan="3">Total:</td>
+            <td><label id="jumlahlbl"></label></td>
+            <td><label id="totallbl"></label></td>
+        </tfoot>
+    </table>
+
+    
+    <script>
+            $(document).ready(function(){
+                $(".view").click(function(){
+                $("#teks").load("pembelian4.html");
+                });
+                var jumlah=0;
+                var total=0;
+                $('#tbody tr').each(function() {    
+                var currentRow=$(this);
+                jumlah=jumlah+Number(currentRow.find("td:eq(3)").text());
+                total=total+Number(currentRow.find("td:eq(4)").text());
+                });
+                $("#jumlahlbl").text(jumlah);
+                $("#totallbl").text(total);
+            });
+    </script>
+</body>
+</html>

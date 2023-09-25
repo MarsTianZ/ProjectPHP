@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <style>
+        body {
+            background-color: navajowhite;
+            }
+        h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 30px;
+        }
+        table{
+            box-shadow: 2px 1px 18px 6px #000;
+            border-radius: 15px;
+            border: none;
+            background-color: #ffea00;
+            font-family: sans-serif;
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            font-weight: bold;
+            font-family: sans-serif;
+            background-color: #ff5500;
+            color: white;
+            text-align: center;
+            border-bottom: 0px;
+            border: none;
+            padding: 8px;
+        }
+        td {
+        font-weight: bold;
+        border: none;      
+        text-align: center;   
+        border-bottom: 0px;
+        font-family: sans-serif;
+        padding: 8px;
+        text-align: center;
+        }
+        tr:hover {
+        font-weight: bold;
+        color: white;
+        background-color: rgb(0, 103, 29);
+        }
+        .butt button[class=rekap]{
+            margin-left: 300px;
+            border-radius: 15px;
+            padding: 20px;
+            background-color:rgb(196, 255, 205);
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        label[class=total]{
+            margin-left: 700px;
+            font-family: sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        button {
+        border-radius: 15px;
+        padding: 20px;
+        background-color:rgb(196, 255, 205);
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        }
+        table tfoot td[class=nama]{
+            border: none;
+        }
+        </style>
+</head>
+<body>
+    <table>
+        <h2>Detail</h2>
+        <theader>
+        <tr>
+            <th>Kode Barang</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+        </tr>
+        </theader>
+        <tbody id="tbody">  
+        <tr>
+            <td>M001</td>
+            <td>2</td>
+            <td>20000</td>
+
+        </tr>
+        <tr>
+            <td>M002</td>
+            <td>3</td>
+            <td>30000</td>
+        </tr>
+        <tr>
+            <td>M003</td>
+            <td>6</td>
+            <td>60000</td>
+        </tr>
+        </tbody>
+        <tfoot border="0">
+            <td class="nama">Total:</td>
+            <td><label id="jumlahlbl"></label></td>
+            <td><label id="totallbl"></label></td>
+        </tfoot>
+    </table>
+
+    
+    <script>
+            $(document).ready(function(){
+                var jumlah=0;
+                var total=0;
+                $('#tbody tr').each(function() {    
+                var currentRow=$(this);
+                jumlah=jumlah+Number(currentRow.find("td:eq(1)").text());
+                total=total+Number(currentRow.find("td:eq(2)").text());
+                });
+                $("#jumlahlbl").text(jumlah);
+                $("#totallbl").text(total);
+            });
+    </script>
+</body>
+</html>

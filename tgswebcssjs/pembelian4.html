@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        $(document).ready(function(){
+            $(".done").click(function(){
+            $("#teks").load("pembelian1.html");
+            });
+        });
+        var total=0;
+                $('#tbody tr').each(function() {    
+                var currentRow=$(this);
+                total=total+Number(currentRow.find("td:eq(2)").text());
+                });
+                $("#totallbl").text(total);
+    </script>
+    <style>
+        label[class=ttal]{
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Kode:2023032704515
+        <br>Tanggal: 10/04/2023
+        <br>Supplier:PTX
+        <br>Telpon Supp: 08166622211
+        <br>Alamat: Lamongan, Jawa Timur
+    </p>
+    <table>
+        <theader>
+        <tr>
+            <th>Kode Barang</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+        </tr>
+        </theader>
+        <tbody id="tbody">  
+        <tr>
+            <td>M001</td>
+            <td>2</td>
+            <td>20000</td>
+
+        </tr>
+        <tr>
+            <td>M002</td>
+            <td>3</td>
+            <td>30000</td>
+        </tr>
+        </tbody>
+    </table>
+    <p style="text-align: center">
+        <label>Karyawan : Adi</label>
+        <label class="ttal">Total : </label><label id="totallbl"></label><br>
+    </p>
+    <button class="done">Selesai</button></a>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <p>Table JQ</p>
+    <form>
+        <label>Kode:</label>
+        <input type="text" id="kode">
+        <label>Nama:</label>
+        <input type="text" id="nama">
+        <label>Satuan:</label>
+        <input type="text" id="satuan">
+        <label>Harga:</label>
+        <input type="text" id="harga">
+        <br>
+        <button type="button" id="save">SAVE</button>
+    </form>
+    <table border="1">
+    <theader>
+        <tr>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Satuan</th>
+            <th>Harga</th>
+            <th>Action</th>
+        </tr>
+    </theader>
+    <tbody id="tbody">
+    </tbody>
+    </table>
+    <br>
+    <label>Total:</label><label id="total">0</label>
+    <script>
+        $(document).ready(function(){
+            var total=0;
+            $("#save").click(function(){
+                total=0;
+                var panjang = $('#tbody tr').length;
+                var kode = $('#kode').val();
+                var nama = $('#nama').val();
+                var satuan = $('#satuan').val();
+                var harga = $('#harga').val();
+                $('#tbody').append("<tr><td>"+kode+"</td><td>"+nama+"</td><td>"+satuan+"</td><td>"+harga+"</td><td><button id=\"id"+panjang+"\" class=\"remove\">x</button></tr>");
+                    console.log(panjang);
+                $('#tbody tr').each(function (){
+                    var currentRow=$(this);
+                    total=total+Number(currentRow.find("td:eq(3)").text());
+                });
+                $('#total').text(total);
+            });
+            $('#tbody').on('Click','.remove',function(){
+                total=0;
+                var id = $(this).attr('id');
+                console.log(id);
+                $(this).closest('tr').remove();
+                $('#tbody tr').each(function (){
+                    var currentRow=$(this);
+                    total=total+Number(currentRow.find("td:eq(3)").text());
+                });
+                $("#total").text(total);
+            });
+        });
+    </script>
+</body>
+</html>

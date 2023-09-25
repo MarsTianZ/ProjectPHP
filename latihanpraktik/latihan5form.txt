@@ -1,0 +1,40 @@
+<table border="1" width="18%">
+        <tr>
+            <td colspan="2" >
+                <h1>FORM LOGIN</h1>
+            </td>
+        <tr>
+            <td align="left" colspan="2"><label for="lbluser">Username</label></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="usernm" name="usernm" placeholder="Masukkan Username"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="left" colspan="2"><label for="lblpass">Password</label></td>
+            <td></td>
+        </div>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="password" id="pass" name="pass" placeholder="Masukkan Password"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" onclick="login()" id="submit" value="Login">
+            </td>
+            <td>
+                <input type="submit" id="cancel" value="Cancel">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="text-center">
+                    <p>Atau login dengan:</p>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-google"></i> Google</a>
+                    <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+                </div>
+            </td>
+        </tr>
+    </table>

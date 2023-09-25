@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                box-shadow: 2px 1px 18px 6px #000;
+                border-radius: 15px;
+                border: none;
+                background-color: #ffea00;
+                border-collapse: collapse;
+                width:80%;  
+                margin-left: auto;
+                margin-right: auto;
+                font-family: sans-serif;
+                font-weight: bold;
+                line-height: 2;
+                }
+                th, td {
+                border: none;
+                padding: 8px;
+                text-align: center;   
+                border-bottom: 0px;
+                font-family: sans-serif;
+                }
+                tr:nth-child() {background-color: #f2f2f2;}
+                th {
+                font-weight: bolder;
+                border: none;
+                background-color: #ff5500;
+                color: white;
+                }
+                tr:hover {
+                    font-weight: bold;
+                    color: white;
+                    background-color: rgb(0, 103, 29);}
+                button:hover{
+                    box-shadow: 2px 2px 2px 2px rgb(196, 255, 205);
+                    margin: 3px;
+                    background-color: rgb(9, 73, 19);
+                    color: rgb(255, 255, 255);
+                }
+                button {
+                border-radius: 15px;
+                padding: 20px;
+                background-color: rgb(196, 255, 205);
+                box-shadow: 2px 2px 2px 2px rgb(9, 73, 19);
+                margin: 3px;
+                border: none;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            #total{
+                font-weight: bold;
+                
+                font-family: sans-serif;
+            }
+            label{
+                font-weight: bold   ;
+                font-family: sans-serif;
+            }
+            p{
+                background-color: #ffea00;
+                width:8%;  
+                margin-left: 10%;
+                margin-right: auto;
+                padding: 10px 1px;
+                box-shadow: 2px 1px 18px 6px #000;
+                border-radius: 15px;
+            }
+            p:hover{
+                background-color: #958800;
+                color: #ffffff;
+            }
+            .header {
+            background-color: #393939;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;    
+            font-weight: bolder;
+            }
+            .topnav {
+            overflow: auto;
+            background-color: #0cd1e3;
+            }
+            .topnav a {
+            float: left;
+            display: block;
+            color: #000000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            }
+            .topnav a:hover {
+            box-shadow: 2px 1px 18px 6px #000;
+            background-color: #393939;
+            color: rgb(255, 255, 255);
+            }
+            body {
+                background-color: navajowhite;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Master Penjualan</h1>
+          </div>
+          <div class="topnav">
+            <a href="/webdasar/latihanweb/tugas1/index.html">Barang</a>
+            <a href="/webdasar/latihanweb/tugas3/index.html">Supplier</a>
+            <a href="/webdasar/latihanweb/tugas2/index.html">Karyawan</a>
+            <a href="/webdasar/latihanweb/penjualan.html">Penjualan</a>
+            <a href="/webdasar/latihanweb/pembelian.html">Pembelian</a>
+          </div>
+        <br>
+        <a href="/webdasar/latihanweb/utama.html"><button>Home</button></a>
+        <a href="/webdasar/latihanweb/penjualan1.html"><button>+</button></a>
+        <table border="1" bordercolor="black" width="100%" height="100" id="mytable">
+        <tr bgcolor="#345273">
+        <th>Kode</th>
+        <th>Tanggal</th>
+        <th style="width:50%">Konsumen</th>
+        <th>Karyawan</th>
+        <th id="subttl">Total</th>
+        <th>Action</th>
+        </tr>
+        <tr>
+            <td>20230327094515</td>
+            <td>27-03-2023</td>
+            <td>Ali</td>
+            <td>Hanta</td>
+            <td align="right">250000</td>
+            <td align="right"><a href="detail.html"></a><a href="update.html"><button>U</button></a></td>
+        </tr>
+        <tr>
+            <td>20230330101115</td>
+            <td>30-03-2023</td>
+            <td>Boy</td>
+            <td>Maimunah</td>
+            <td align="right">500000</td>
+            <td align="right"><a href="detail.html"></a><a href="update.html"><button>U</button></a></td>
+        </tr>
+        <tr>
+            <td>20230331102115</td>
+            <td>31-03-2023</td>
+            <td>Girl</td>
+            <td>Tirta</td>
+            <td align="right">1000000</td>
+            <td align="right"><a href="detail.html"></a><a href="update.html"><button>U</button></a></td>
+        </tr>
+        </table>
+            <p style="text-align: center;">
+                <label class="total">Total: </label>
+            <label id="total">0</label></p><br><br>
+    </body>
+
+    <script>
+                var sum = 0;
+                var subttl = document.getElementById("subttl");
+                var rows = document.getElementsByTagName("tr");
+                for (var i = 0; i < rows.length; i++) {
+                    var row = rows[i];
+                    var cells = row.getElementsByTagName("td");
+                    if (cells.length > 0) {
+                    var cell = cells[subttl.cellIndex];
+                    if (cell.innerHTML != "") {
+                        sum += parseFloat(cell.innerHTML);
+                    }
+                    }
+                }
+                console.log(sum);
+                document.getElementById("total").innerHTML = sum;
+    </script>
+</html>

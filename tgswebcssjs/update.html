@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            input[type=text]{
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid red;
+                background-color: rgb(170, 167, 163);
+                color: black;
+                outline: none;
+                width: 700px;
+            }
+            input[type=text]:focus{
+                background-color: lightblue;
+            }
+            textarea{
+                width: 500px;
+                height: 150px;
+                padding: 12px 20px;
+                box-sizing: border-box;
+                border: 2px solid #aaa;
+                border-radius: 4px;
+                background-color: aliceblue;
+                color: black;
+            }
+            input[type=submit]{
+                background: linear-gradient(#f70411 16%, #8f0222 44%, #f70018 99%); 
+                color:white; 
+                padding: 5px 50px; 
+                border:0px; 
+                box-shadow: 2px 2px 2px grey; 
+                border-radius: 5%
+            }
+            select{
+                background-color: rgb(170, 167, 163);
+                width: 700px;
+                padding: 10px 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Update Barang</h1>
+        <form action="index.html" method="post" autocomplete="on">
+            <label for="kode">Kode:</label><br>
+            <input type="text" id="kode" name="kode" placeholder="1234"><br>
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama" placeholder="Komputer"><br>
+            <label for="golongan">Golongan:</label><br>
+            <select id="golonggan" name="golongan">
+                <option value="komputer">Komputer</option>
+                <option value="hp">HP</option>
+                <option value="aksesoris">Aksesoris</option>
+                <option value="lain">Lain</option>
+            </select><br>
+            <label for="satuan">Satuan:</label><br>
+            <input type="text" id="satuan" name="satuan" placeholder="pcs"><br>
+            <label for="harga">Harga:</label><br>
+            <input type="text" id="harga" name="harga" placeholder="1000"><br><br>
+            <input type="submit" onclick="Ubah()" name="update" id="update" value="Ubah" ></input>
+            <script>
+                function Ubah(){
+                    window.alert("Data berhasil di ubah")
+                }
+            </script>
+            <input type="submit" name="cancel" id="cancel" value="Batal">
+        </form>
+    
+    </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header{
+            text-align: center;
+            color: rgb(228, 105, 5);
+        }
+        h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 20px;
+        }
+        table{
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            background-color:  #206bc2;
+            color: rgb(180, 221, 84);
+            text-align: center;
+            border: 1px solid #161616;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+
+        .topnav {
+            overflow: hidden;
+            background-color: #5784d8;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover {
+            background-color: #e90d0d;
+            color: rgb(233, 231, 236);
+        }
+        button[class=insert]{
+            background: linear-gradient(#19a196 16%, #7ecde6 44%, #27809b 99%);
+            color: azure;
+            margin-bottom: 10px;
+            margin-left: 270px;
+            padding: 5px 50px;
+            box-shadow: 2px 2px 2px grey;
+        }
+        label[class=total]{
+            margin-left: 700px;
+        }
+        button{
+            background: linear-gradient(45deg, rgb(117,202,206) 0%, rgb(85,164,114) 58%, rgb(17,148,197) 100%);
+            border: 1px solid aquamarine;
+            padding: 5px 7px;
+            margin: 3px;
+            color: azure;
+        }
+        .topnav a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+        }
+        .topnav a:hover {
+                background-color: #e90d0d;
+                color: rgb(233, 231, 236);
+        }
+        </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Toko Jaya</h1>
+    </div>
+    <div class="topnav">
+        <a href="barang.html">Barang</a>
+        <a href="supplier.html">Supplier</a>
+        <a href="karyawan.html">Karyawan</a>
+        <a href="penjualan.html">Penjualan</a>
+        <a href="pembelian.html">Pembelian</a>
+      </div><br>
+    <table id="myTable">
+        <h2>Master Penjualan</h2>
+        <a href="insert4.html"><button class="insert">Tambah</button></a>
+        <tr>
+            <th>Kode</th>
+            <th>Tanggal</th>
+            <th>Konsumen</th>
+            <th>Karyawan</th>
+            <th id="harga">Harga</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>2023032704515</td>
+            <td>27-03-2023</td>
+            <td>Ali</td>
+            <td>Ani</td>
+            <td>2000</td>
+            <td><a href="detail.html"><button>R</button></a></td>
+        </tr>
+        <tr>
+            <td>2023032704516</td>
+            <td>27-03-2023</td>
+            <td>Abi</td>
+            <td>Budi</td>
+            <td>3000</td>
+            <td><a href="detail.html"><button>R</button></a></td>
+        </tr>
+        <tr>
+            <td>2023032704517</td>
+            <td>27-03-2023</td>
+            <td>Ina</td>
+            <td>Cindi</td>
+            <td>10000</td>
+            <td><a href="detail.html"><button>R</button></a></td>
+        </tr>
+    </table>
+    <p style="text-align: center">
+        <label class="total">Total : </label><label id="totallbl"></label><br>
+    </p>
+    
+    <script>
+            var sum = 0;
+            var harga = document.getElementById("harga");
+            var rows = document.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var cells = row.getElementsByTagName("td");
+                if (cells.length > 0) {
+                var cell = cells[harga.cellIndex];
+                if (cell.innerHTML != "") {
+                    sum += parseFloat(cell.innerHTML);
+                }
+                }
+            }
+            console.log(sum);
+            document.getElementById("totallbl").innerHTML = sum;
+    </script>
+</body>
+</html>

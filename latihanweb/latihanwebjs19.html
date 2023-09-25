@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+    <div id="myPlot" style="width: 100%;max-width: 700px;"></div>
+    <script>
+        var xArray = ["Penjualan", "Pembelian","pengeluaran"];
+        var yArray = [55,49,44];
+        
+        //Define Data
+        var data = [{
+            x:yArray,
+            y:xArray,
+            type:"bar",
+            orientation: "h",
+            marker: {color:"blue"}
+        }];
+        
+        //Define Layout
+        var layout = {title: "TOKO"};
+
+        //Display Using Plotly
+        Plotly.newPlot("myPlot", data, layout)
+    </script>
+</body>
+</html>

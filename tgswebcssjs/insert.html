@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            input[type=text]{
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid red;
+                background-color: rgb(170, 167, 163);
+                color: black;
+                outline: none;
+                width: 700px;
+            }
+            
+            input[type=submit]{
+                background: linear-gradient(#f70411 16%, #8f0222 44%, #f70018 99%); 
+                color:white; 
+                padding: 5px 50px; 
+                border:0px; 
+                box-shadow: 2px 2px 2px grey; 
+                border-radius: 5%
+            }
+            select{
+                background-color: rgb(170, 167, 163);
+                width: 700px;
+                padding: 10px 12px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>Insert Barang</h1>
+        <form action="barang.html" method="post" autocomplete="on">
+            <label for="kode">Kode:</label><br>
+            <input type="text" id="kode" name="kode" placeholder="1234"><br>
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama" placeholder="Komputer"><br>
+            <label for="golongan">Golongan:</label><br>
+            <select id="golongan" name="golongan">
+                <option value="komputer">Komputer</option>
+                <option value="hp">HP</option>
+                <option value="aksesoris">Aksesoris</option>
+                <option value="lain">Lain</option>
+            </select><br>
+            <label for="satuan">Satuan:</label><br>
+            <input type="text" id="satuan" name="satuan" placeholder="pcs"><br>
+            <label for="harga">Harga:</label><br>
+            <input type="text" id="harga" name="harga" placeholder="1000"><br><br>
+            <input type="submit" onclick="Simpan()" id="save" name="save" value="Simpan"></input>
+            <script>
+                function Simpan(){
+                    window.alert("Data berhasil di simpan")
+                }
+            </script>
+        <input type="submit" id="cancel" name="cancel" value="Batal">
+        </form>
+        
+    </body>
+</html>

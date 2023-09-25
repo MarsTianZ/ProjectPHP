@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+
+
+    <style>
+        label{
+                font-family: sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .kd{
+                font-family: sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            h1 {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            }
+            input[type=text]{
+                font-size: 18px;
+                font-family: sans-serif;
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid #000000;
+                color: rgb(0, 0, 0);
+                outline: none; 
+            }
+            #tgl {
+                font-size: 18px;
+                font-family: sans-serif;
+                background-color: rgb(170, 167, 163);
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid #000000;
+                color: rgb(0, 0, 0);
+                outline: none; 
+            }
+            #kar{
+                font-size: 18px;
+                font-family: sans-serif;
+                width: 100%;
+                padding: 16px 20px;
+                border: none;
+                border-bottom: 2px solid #000000;
+            }
+
+
+        .mid input[type=text], .mid select{
+            margin-bottom : 15px;
+        }
+        #awal select{
+            background-color: #d3d7d6;
+            width: 500px;
+            padding: 12px 20px;
+        }
+
+        .tgl{
+            background-color: #d3d7d6;
+        }
+
+
+        table{
+            box-shadow: 2px 1px 18px 6px #000;
+            border-radius: 15px;
+            border: none;
+            background-color: #ffea00;
+            font-family: sans-serif;
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            font-weight: bold;
+            font-family: sans-serif;
+            background-color: #ff5500;
+            color: white;
+            text-align: center;
+            border-bottom: 0px;
+            border: none;
+            padding: 8px;
+        }
+        td {
+            font-weight: bold;
+            border: none;      
+            text-align: center;   
+            border-bottom: 0px;
+            font-family: sans-serif;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:hover {
+            font-weight: bold;
+            color: white;
+            background-color: rgb(0, 103, 29);
+        }
+        button {
+            border-radius: 15px;
+            padding: 20px;
+            background-color:rgb(196, 255, 205);
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 30px;
+        }
+        </style>
+
+        <script>
+
+        $(document).ready(function(){
+        const now = new Date();
+        const waktu = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;
+
+        const tgl = $('#tgl');
+        tgl.val(waktu);
+        $("#supplier").change(function(){
+        if($("#supplier").val() == "ptx")
+        {
+            $('#telpon').val('08166622211');
+            $('#alamat').val('Lamongan, Jawa Timur');
+        }
+        else if($("#supplier").val()=="pty")
+        {
+            $('#telpon').val('08233355522');
+            $('#alamat').val('Sidoarjo, Jawa Timur');
+        }
+        else if($("#supplier").val()=="ptd")
+        {
+            $('#telpon').val('08988866644');
+            $('#alamat').val('Surabaya, Jawa Timur');
+        }
+        });
+
+        $("#karyawan").change(function(){
+        if($("#karyawan").val() == "agus")
+        {
+            $('#jabatan').val('Admin');
+        }
+        else if($("#karyawan").val()=="oky")
+        {
+            $('#jabatan').val('Operator');
+        }
+        else if($("#karyawan").val()=="sulis")
+        {
+            $('#jabatan').val('Supervisor');
+        }
+        });
+
+        $("#kodebrg").change(function(){
+        if($("#kodebrg").val() == "M001")
+        {
+            $('#namabrg').val('CPU');
+            $('#satuan').val('pcs');
+            $('#hargabrg').val('2000');
+        }
+        else if($("#kodebrg").val()=="M002")
+        {
+            $('#namabrg').val('VGA');
+            $('#satuan').val('pcs');
+            $('#hargabrg').val('3000');
+        }
+        else if($("#kodebrg").val()=="M003")
+        {
+            $('#namabrg').val('RAM');
+            $('#satuan').val('pcs');
+            $('#hargabrg').val('1000');
+        }
+        else if($("#kodebrg").val()=="M004")
+        {
+            $('#namabrg').val('SAMSUNG');
+            $('#satuan').val('pcs');
+            $('#hargabrg').val('4000');
+        }
+    });
+        var jumlahh=0;
+        var totall=0;
+    $("#save").click(function(){
+        jumlahh=0;
+        totall=0;
+        var panjang = $('#tbody tr').length;
+        var kode =$('#kodebrg').val();
+        var nama =$('#namabrg').val(); 
+        var satuan =$('#satuan').val();
+        var harga =$('#hargabrg').val();
+        var jumlah =$('#jumlah').val();
+        var total = $('#jumlah').val() * $('#hargabrg').val();
+        $('#tbody').append("<tr><td>"+kode+"</td><td>"+nama+"</td><td>"+satuan+"</td><td>"+harga+"</td><td>"+jumlah+"</td><td>"+total+"</td><td><button id=\"id"+panjang+"\" class=\"remove\">x</button></tr>");
+        console.log(panjang);
+        $('#tbody tr').each(function() {    
+        var currentRow=$(this);
+        jumlahh=jumlahh+Number(currentRow.find("td:eq(4)").text());
+        totall=totall+Number(currentRow.find("td:eq(5)").text());
+        });
+        $("#jumlahlbl").text(jumlahh);
+        $("#totallbl").text(totall);
+        });
+        $('#tbody').on('click','.remove',function(){
+            jumlahh=0;
+            totall=0;
+            var id = $(this).attr('id');
+            console.log(id);
+            $(this).closest('tr').remove();
+            $('#tbody tr').each(function(){
+                var currentRow=$(this);
+                jumlahh=jumlahh+Number(currentRow.find("td:eq(4)").text());
+                totall=totall+Number(currentRow.find("td:eq(5)").text());
+            });
+            $("#jumlahlbl").text(jumlahh);
+            $("#totallbl").text(totall);
+        });
+        });
+        </script>
+
+</head>
+<body>
+    <div class="container">
+        <form class="well well-lg" style="margin-left: 10px;margin-right: 10px;">
+            <div class="row" align="left">
+                <div class="col">
+                    <label for="tgl" class="form-label">Tanggal :</label>
+                    <input type="text" class="form-control" id="tgl" name="tgl" readonly>
+                </div>
+                <div class="col">
+                    <label for="konsumen">Konsumen :</label><br>
+                    <input type="text" class="form-control" id="konsumen" placeholder="Masukkan Konsumen" name="konsumen">
+                </div>
+            </div>
+            <div class="row" align="left">
+                <div class="col" align="left">
+                    <label for="kar">Karyawan :</label><br>
+                    <select class="form-select" id="kar" name="karyawan">
+                        <option value="Agus">Ani</option>
+                        <option value="Jaka">Jaka</option>
+                    </select>
+                </div>
+                <div class="col" align="left">
+                    <label for="telp">Telp :</label><br>
+                    <input type="text" class="form-control" id="telp" placeholder="Masukkan No.Telp" name="telpon">
+                </div>
+            </div> 
+            <div class="mb-3 mt-3" align="left">
+                <label for="alamat" class="form-label">Alamat :</label>
+                <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" name="alamat">
+            </div>
+            <div class="mb-3 mt-3" align="left">
+                <label for="ket" class="form-label">Keterangan :</label>
+                <input type="text" class="form-control" id="ket" placeholder="Masukkan Keterangan" name="ket">
+            </div>
+        
+            <div class="row" align="left">
+                <div class="col-1">
+                    <label for="tgl" class="form-label">Kode :</label>
+                    <input type="text" class="form-control" id="konsumen" name="konsumen" readonly>
+                </div>
+                <div class="col">
+                    <label for="konsumen">Konsumen :</label><br>
+                    <input type="text" class="form-control" id="konsumen" placeholder="Masukkan Konsumen" name="konsumen">
+                </div>
+            </div>
+
+            <label for="kodebrg">Kode :</label>
+            <select id="kodebrg" name="kodebrg">
+                <option value="A01">A01</option>
+                <option value="A02">A02</option>
+                <option value="B01">B01</option>
+                <option value="B01">B02</option>
+            </select>
+            <label for="nmbrg">Nama:</label>
+            <input type="text" id="namabrg" name="namabrg" readonly>
+            <label>Satuan:</label>
+            <input type="text" id="satuan" name="satuan" readonly>
+            <label for="hrgabrg">Harga:</label>
+            <input type="number" id="hargabrg" name="harga" readonly>
+            <label for="jml">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah"  ><br><br>
+            <button type="button" id="save">Save</button>
+
+        <table border="1" id="myTable">
+            <theader>
+            <tr>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Satuan</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+            </theader>
+            <tbody id="tbody">
+
+            </tbody>
+            <tfoot border="0">
+                <td class="nama" colspan="4">Total:</td>
+                <td><label id="jumlahlbl"></label></td>
+                <td colspan="2"><label id="totallbl"></label></td>
+            </tfoot>
+        </table>
+        <br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <style>
+        .header{
+            text-align: center;
+            color: rgb(228, 105, 5);
+        }
+        h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 20px;
+        }
+        table{
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            background-color:  #206bc2;
+            color: rgb(180, 221, 84);
+            text-align: center;
+            border: 1px solid #161616;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+
+        .topnav {
+            overflow: hidden;
+            background-color: #5784d8;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover {
+            background-color: #e90d0d;
+            color: rgb(233, 231, 236);
+        }
+        .butt button[class=rekap]{
+            margin-left: 300px;
+        }
+        button:hover{
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        label[class=total]{
+            margin-left: 700px;
+        }
+        button{
+            background: linear-gradient(45deg, rgb(117,202,206) 0%, rgb(85,164,114) 58%, rgb(17,148,197) 100%);
+            border: 1px solid aquamarine;
+            padding: 5px 7px;
+            margin: 3px;
+            color: azure;
+        }
+
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#teks").load("pembelian1.html");
+            $(".rekap").click(function(){
+                console.log("hello");
+                $("#teks").load("pembelian1.html");
+            });
+            $(".detaill").click(function(){
+                $("#teks").load("pembelian2.html");
+            });
+            $(".insertt").click(function(){
+                $("#teks").load("pembelian3.html");
+            });
+            
+            });
+        </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Toko Jaya</h1>
+    </div>
+    <div class="topnav">
+        <a href="barang.html">Barang</a>
+        <a href="supplier.html">Supplier</a>
+        <a href="karyawan.html">Karyawan</a>
+        <a href="penjualan.html">Penjualan</a>
+        <a href="pembelian.html">Pembelian</a>
+      </div><br>
+      <div class="butt">
+        <button class="rekap">Rekap</button>
+        <button class="detaill">Detail</button>
+        <button class="insertt">+</button>
+    </div> 
+        <div id="teks"></div>
+
+</body>
+</html>

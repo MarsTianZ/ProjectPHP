@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+        background-color: navajowhite;
+            }
+        .topnav a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-weight: bold;
+        }
+        .topnav a:hover {
+        box-shadow: 2px 1px 18px 6px #000;
+        background-color: #393939;
+        color: rgb(255, 255, 255);
+        }
+        button {
+        border-radius: 15px;
+        padding: 20px;
+        background-color:rgb(196, 255, 205);
+        border: none;
+        font-size: 15px;
+        }
+        .header {
+            background-color: #393939;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;    
+            font-weight: bolder;
+            }
+            h2{
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 30px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $(".view").click(function(){
+            $("#teks").load("pembelian4_view.html");
+            });
+            var jumlah=0;
+            var total=0;
+            $('#tbody tr').each(function() {    
+            var currentRow=$(this);
+            jumlah=jumlah+Number(currentRow.find("td:eq(3)").text());
+            total=total+Number(currentRow.find("td:eq(4)").text());
+            });
+            $("#jumlahlbl").text(jumlah);
+            $("#totallbl").text(total);
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <h2>Rekap</h2>
+        <theader>
+        <tr>
+            <th>Kode</th>
+            <th>Supplier</th>
+            <th>Karyawan</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        </theader>
+        <tbody id="tbody">  
+        <tr>
+            <td>2023031204516</td>
+            <td>PTX</td>
+            <td>Adi</td>
+            <td>5</td>
+            <td>50000</td>
+            <td><button class="view">V</button></a></td>
+        </tr>
+        <tr>
+            <td>2023031204619</td>
+            <td>PTY</td>
+            <td>Adi</td>
+            <td>6</td>
+            <td>50000</td>
+            <td><button class="view">V</button></a></td>
+        </tr>
+        </tbody>
+        <tfoot border="0">
+            <td class="nama" colspan="3">Total:</td>
+            <td><label id="jumlahlbl"></label></td>
+            <td colspan="2"><label id="totallbl"></label></td>
+        </tfoot>
+    </table>
+</body>
+</html>

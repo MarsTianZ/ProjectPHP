@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            label{
+                font-family: sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            h1 {
+            border-radius: 10px;
+            background-color: #393939;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            }
+            input[type=text] {
+                font-size: 18px;
+                font-family: sans-serif;
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid #000000;
+                color: rgb(0, 0, 0);
+                outline: none; 
+            }
+            #gol {
+                font-size: 18px;
+                font-family: sans-serif;
+                width: 100%;
+                padding: 16px 20px;
+                border: none;
+                border-bottom: 2px solid #000000;
+            }
+            textarea {
+                font-size: 18px;
+                font-family: sans-serif;
+                width: 100%;
+                height: 150px;
+                padding: 16px 20px;
+                box-sizing: border-box;
+                border: 2px solid #000000;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" align="center">
+            <h1 style="color:white;">Update Supplier</h1>
+            <div align="center">      
+                <form class="well well-lg" style="margin-left: 10px;margin-right: 10px;">
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="kode" class="form-label">Kode :</label>
+                        <input type="text" class="form-control" id="kodesup" placeholder="Masukkan Kode" name="kode">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="nama" class="form-label">Nama :</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="perusahaan" class="form-label">Perusahaan :</label>
+                        <input type="text" class="form-control" id="perusahaan" placeholder="Masukkan Perusahaan" name="perusahaan">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="telpSales" class="form-label">Telp Sales :</label>
+                        <input type="text" class="form-control" id="telpSales" placeholder="Masukkan No. HP. Sales" name="telpSales">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="telpKantor" class="form-label">Telp Kantor :</label>
+                        <input type="text" class="form-control" id="telpKantor" placeholder="Masukkan No. Kantor" name="telpKantor">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="email" class="form-label">Email :</label>
+                        <input type="text" class="form-control" id="email" placeholder="Masukkan Email" name="email">
+                    </div>
+                    <div class="mb-3 mt-3" align="left">
+                        <label for="keterangan">Keterangan:</label><br>
+                            <textarea name="keterangan" rows="8" cols="80" placeholder="1234"></textarea>                        
+                    </div>
+                    <br>
+                    <!-- 
+                    <button type="button" class="btn btn-secondary" onclick="Ubah()" id="save" name="save" style="margin-left: auto; margin-right :auto; padding: 8px 20px ;">Simpan</button>            
+                     -->
+                    <input type="hidden" id="rowId" name="rowId">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        textarea {
+        border-radius: 5px;
+        border-color: gray;
+        padding: 10px 20px;
+        }
+        input[type=text] {
+        width: 93%;
+        padding: 10px;
+        color: black;
+        border-color:gray;
+        }
+        input[type=submit]{
+            background-color: green;
+            color:white;
+            border-style: outset;
+            padding: 12px 15px;
+            outline:auto; 
+            font: bold=100 arial,sans-serif;
+        }
+        select {
+            width: 100%;
+            padding: 16px 20px;
+            border-color: gray;
+            border-radius: 5px;
+        }
+    </style>
+    <h1 style="font: 3em sans-serif;";><strong>P E N D A F T A R A N</strong></h1>
+</head>
+<body>
+    <label style="font-family: Verdana, Geneva, Tahoma, sans-serif;" for="nm">Nama</label><br><br>
+    <input style="font-family: Verdana, Geneva, Tahoma, sans-serif; background-color:#E8F0FD;" type="text" id="nm" name="nm" placeholder="" size="120"><br>
+    <label style="font-family: Verdana, Geneva, Tahoma, sans-serif;" for="email">Email</label><br><br>
+    <input style="font-family: Verdana, Geneva, Tahoma, sans-serif;" type="text" id="email" name="email" placeholder="" size="120"><br><br>
+    <label style="font-family: Verdana, Geneva, Tahoma, sans-serif;" for="jml">Jumlah Saudara</label><br><br>
+    <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+    </select><br><br>
+        <label style="font-family: Verdana, Geneva, Tahoma, sans-serif;" for="alamat">Alamat</label><br><br>
+    <textarea name="alamat" id="alamat" cols="131" rows="8"></textarea><br><br>
+    <input type="submit" id="simpan" value="Simpan"></button>
+    <input type="submit" id="batal" value="Batal">
+</body>
+</html>

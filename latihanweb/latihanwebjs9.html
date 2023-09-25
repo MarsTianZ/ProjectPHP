@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>if .. else dalam JS</h2>
+    <p id="isi"></p>
+    <script>
+        const time = new Date().getHours();
+        let salam;
+        if (time < 10) {
+            salam = "Selamat Pagi";
+        } else if (time < 20 ) {
+            salam = "Selamat Siang";
+        } else {
+            salam = "Selamat Malam";
+        }
+        document.getElementById("isi").innerHTML = salam;
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.fn.myFunction1 = function(){
+                alert('Menampilkan Fungsi');
+            }
+            $.fn.myFunction2 = function(x){
+                alert('Menampilkan Fungsi '+x);
+            }
+            $.fn.myFunction3 = function(x,y){
+                alert('Menampilkan Fungsi '+x+' '+y);
+            }
+            $(".call-btn1").click(function(){
+                $.fn.myFunction1();
+            });
+            $(".call-btn2").click(function(){
+                $.fn.myFunction2("Oke");
+            });
+            $(".call-btn3").click(function(){
+                $.fn.myFunction3(2,5);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button type="button" class="call-btn1">Click Me</button>
+    <button type="button" class="call-btn2">Click Me</button>
+    <button type="button" class="call-btn3">Click Me</button>
+</body>
+</html>

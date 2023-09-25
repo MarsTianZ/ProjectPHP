@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h2>Pilih Elemen</h2>
+    <form>
+        <label for="propinsi">Propinsi</label>
+        <select id="propinsi" name="propinsi" onchange="ubah()">
+            <option value="jabar">Jawa Barat</option>
+            <option value="jateng">Jawa Tengah</option>
+            <option value="jatim">Jawa Timur</option>
+        </select>
+        <select id="kota" name="kota">
+            <option value="1">A</option>
+            <option value="2">AA</option>
+        </select>
+    </form>
+    <script>
+        function ubah(){
+            if (document.getElementById("propinsi").value=="jabar"){
+                document.getElementById('kota').innerHTML = '<option value = \"1\">A</option><option value=\"2\">AA</option>';
+            } else if (document.getElementById("propinsi").value=="jateng"){
+                document.getElementById('kota').innerHTML = '<option value = \"1\">B</option><option value=\"2\">BB</option>';
+            } else if (document.getElementById("propinsi").value=="jatim"){
+                document.getElementById('kota').innerHTML = '<option value = \"1\">C</option><option value=\"2\">CC</option>';
+            }
+        }
+    </script>
+</body>
+</html>

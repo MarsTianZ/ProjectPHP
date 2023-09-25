@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+    <div id="myPlot1" style="width: 100%;max-width: 700px;"></div>
+    <div id="myPlot2" style="width: 100%;max-width: 700px;"></div>
+    <script>
+        var xArray = ["Penjualan", "Pembelian","pengeluaran"];
+        var yArray = [55,49,44];
+        
+        var layout = {title: "TOKO"};
+
+        var data = [{labels:xArray, value:yArray, type:"pie"}];
+        
+        Plotly.newPlot("myPlot1", data, layout)
+
+        var data = [{labels:xArray, value:yArray, hole:.4, type:"pie"}];
+
+        Plotly.newPlot("myPlot2", data, layout)
+    </script>
+</body>
+</html>

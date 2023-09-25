@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        #kdb, #jml,#hrg, #sta, #nmb{
+            margin-right: 2%;
+        }
+        #inpkodebrg{
+            width: 80px;
+            margin-right: 2%;
+            margin-bottom: 1%;
+
+        }
+        #inpnamabrg{
+            width: 75px;
+            margin-right: 2%;
+            margin-bottom: 1%;
+
+        }
+        #inpsatuan{
+            width: 35px;
+            margin-right: 2%;
+            margin-bottom: 1%;
+
+        }
+        #inpharga{
+            width: 60px;
+            margin-right: 2%;
+            margin-bottom: 1%;
+
+        }
+        #jml{
+            margin-left: 2.5%;
+            
+
+        }
+        select{
+            width: 150px;
+            height: 26px;
+            background-color: azure;
+        }
+        input{
+            background-color: azure;
+        }
+        #inpjumlah{
+            width: 80px;
+
+        }
+      
+    </style>
+</head>
+<body>
+    <form >
+        <label for="kode" id ="kodelb">kode</label><br>
+        <input type="text" name="kode" id="kode" readonly><br>
+        <label for="tgl" id="lbtgl">tanggal</label><br>
+        <input type="text" name="tgl" id="tgl" ><br>
+        <label for="konsumen">konsumen</label><br>
+        <input type="text" name="konsumen" id="konsumen"><br>
+        <label for="karyawan">karyawan</label><br>
+        <select name="karyawan" id="karyawan" onclick="piljabatan()">
+            <option value="RAP">RAP</option>
+            <option value="RyanAdpt">RyanAdpt</option>
+            <option value="Adpt">Adpt</option>
+            <option value="Adipati">Adipati</option>
+        </select><br>
+        <label for="jabatan">jabatan</label><br>
+        <input type="text" name="jabatan" id="jabatan" readonly><br>
+        <label for="Kodebrg" id="kdb">kode barang </label>
+        <label for="namabrg" id="nmb">nama barang </label>
+        <label for="satuan" id="sta">satuan</label>
+        <label for="harga" id="hrg">harga</label>
+        <label for="jumlah" id="jml">jumlah</label><br>
+        <select name="inpkodebrg" id="inpkodebrg" onclick="pilmakanan()">
+            <option value="kode1">kode1</option>
+            <option value="kode2">kode2</option>
+            <option value="kode3">kode3</option>
+        </select>
+       <input type="text" name="inpnamabrg" id="inpnamabrg" readonly>
+       <input type="number" id="inpsatuan" min="0" onchange="kali()">
+       <input type="number" name="inpharga" id="inpharga" readonly>
+       <input type="number" name="inpjumlah" id="inpjumlah" readonly><br>
+       <table border="1">
+        <tr>
+            <th>
+                kode
+            </th>
+            <th>
+                nama barang
+            </th>
+            <th>
+                satuan 
+            </th>
+            <th>
+                harga
+            </th>
+            <th>
+                jumlah
+            </th>
+        </tr>
+       </table>
+    </form>
+
+   <script>
+    function kali(tst){
+        
+        num1 = parseInt(document.getElementById("inpsatuan").value);
+        num2 = parseInt(document.getElementById("inpharga").value);
+        jum = num1 * num2
+        document.getElementById("inpjumlah").value = jum;
+
+
+    }
+    function piljabatan(){
+        var nama = document.getElementById("karyawan");
+        var value = nama.options[nama.selectedIndex].text;
+        if(value == "RAP"){
+            document.getElementById("jabatan").value = "jukir";
+        }else if (value == "RyanAdpt"){
+            document.getElementById("jabatan").value = "heckel";
+
+        }else if (value == "Adpt"){
+            document.getElementById("jabatan").value = "heckel";
+        }
+    }
+    function pilmakanan(){
+        var nama = document.getElementById("inpkodebrg");
+        var value = nama.options[nama.selectedIndex].text;
+        if(value == "kode1"){
+            document.getElementById("inpnamabrg").value = "buncis";
+            document.getElementById("inpharga").value = 2000;
+            
+        }else if (value == "kode2"){
+            document.getElementById("jabatan").value = "heckel";
+            document.getElementById("inpharga").value = 3000;
+
+        }else if (value == "kode3"){
+            document.getElementById("jabatan").value = "heckel";
+            document.getElementById("inpharga").value = 5000;
+        }
+    }
+   </script>
+    
+</body>
+</html>

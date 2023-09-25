@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .awal input[type=text]{
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid red;
+            background-color: rgb(170, 167, 163);
+            color: black;
+            outline: none;
+            width: 500px;
+        }
+
+        input{
+            padding: 5px;
+            margin: 8px;
+            border: black;
+            border-bottom: 2px solid red;
+            background-color: white;
+            color: black;
+            outline: none;
+            width: 100px;
+        }
+        
+        input[type=submit]{
+            background: linear-gradient(#f70411 16%, #8f0222 44%, #f70018 99%); 
+            color:white; 
+            padding: 5px 50px; 
+            border:0px; 
+            box-shadow: 2px 2px 2px grey; 
+            border-radius: 5%
+        }
+        .awal select{
+            background-color: rgb(170, 167, 163);
+            width: 500px;
+            padding: 10px 12px;
+        }
+        table{
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+        }
+        th {
+            background-color:  #206bc2;
+            color: rgb(180, 221, 84);
+            text-align: center;
+            border: 1px solid #161616;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        select{
+            background-color: rgb(255, 255, 255);
+            width: 100px;
+            padding: 10px 12px;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+        button{
+            background: linear-gradient(45deg, rgb(117,202,206) 0%, rgb(85,164,114) 58%, rgb(17,148,197) 100%);
+            border: 1px solid aquamarine;
+            padding: 5px 7px;
+            margin: 3px;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insert Penjualan</h1>
+    <div class="awal">
+        <form action="penjualan.html" method="post" autocomplete="on">
+
+            <label for="kode">Kode:</label><br>
+            <input type="text" id="kode" name="kode" readonly><br>
+            <label for="tgl">Tanggal:</label><br>
+            <input type="text" id="tgl" name="tgl" readonly><br>
+            <label for="">Konsumen:</label><br>
+            <input type="text" id="konsumen" name="konsumen" placeholder="Ali"><br>
+            <label for="karyawan">Karyawan:</label><br>
+            <select id="karyawan" name="karyawan" onchange="pilkar()">
+                <option value="agus">Agus</option>
+                <option value="oky">Oky</option>
+                <option value="sulis">Sulis</option>
+            </select><br>
+            <label for="jabatan">Jabatan:</label><br>
+            <select id="jabatan" name="jabatan">
+                <option value="operator">Operator</option>
+                <option value="admin">Admin</option>
+                <option value="supervisor">Supervisor</option>
+            </select><br><br>   
+
+        </form>
+    </div>
+            <label for="kodebrg">Kode:</label>
+            <select id="kodebrg" name="kodebrg" onclick="pilbarang()">
+                <option value="M001">M001</option>
+                <option value="M002">M002</option>
+                <option value="M003">M003</option>
+                <option value="M004">M004</option>
+            </select>
+            <label for="nmbrg">Nama:</label>
+            <input type="text" id="namabrg" name="namabrg" readonly>
+            <label>Satuan:</label>
+            <input type="text" id="satuan" name="satuan" readonly>
+            <label for="hrgabrg">Harga:</label>
+            <input type="number" id="hargabrg" name="harga" readonly>
+            <label for="jml">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah"  ><br><br>
+            <button onclick="myFunction()">Save</button>
+            <a href="penjualan.html"><button>Batal</button></a><br><br>
+
+        <table border="1" id="myTable">
+            <tr>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Satuan</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </table>
+        <br>
+        <label>Total:</label><label id="total">0</label>
+        <script>
+        function pilkar(){
+            var kar = document.getElementById("karyawan").value;
+            var jbt = document.getElementById("jabatan");
+            if(kar == "agus"){
+                jbt.value = "admin";
+            }else if (kar == "oky"){
+                jbt.value = "operator";
+            }else if (kar == "sulis"){
+                jbt.value = "supervisor";
+            }
+        }
+        function pilbarang(){
+            var barang = document.getElementById("kodebrg").value;
+            if(barang == "M001"){
+                document.getElementById("namabrg").value = "CPU";
+                document.getElementById("hargabrg").value = 2000;
+                document.getElementById("satuan").value = "pcs";
+            }else if (barang == "M002"){
+                document.getElementById("namabrg").value = "VGA";
+                document.getElementById("hargabrg").value = 3000;
+                document.getElementById("satuan").value = "pcs";
+            }else if (barang == "M003"){
+                document.getElementById("namabrg").value = "RAM";
+                document.getElementById("hargabrg").value = 1000;
+                document.getElementById("satuan").value = "pcs";
+            }else if (barang == "M004"){
+                document.getElementById("namabrg").value = "SAMSUNG";
+                document.getElementById("hargabrg").value = 4000;
+                document.getElementById("satuan").value = "pcs";
+            }
+        }
+        var tgl = new Date();
+
+			// ambil element untuk tempat kode dan tgl
+			var kodeInput = tgl.getFullYear()+''+tgl.getMonth()+''+tgl.getDate()+''+tgl.getHours()+''+
+            tgl.getMinutes()+''+tgl.getSeconds();
+			let tglInput = tgl.getDate()+'/'+tgl.getMonth()+'/'+tgl.getFullYear();
+
+			document.getElementById('kode').value = kodeInput;
+            document.getElementById('tgl').value = tglInput;
+
+			function myFunction() {
+				var table = document.getElementById("myTable")
+                var panjang = table.rows.length;
+				var row = table.insertRow(panjang);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+				var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+				var cell7 = row.insertCell(6);
+				row.setAttribute("id", "id"+panjang);
+				cell1.innerHTML = document.getElementById("kodebrg").value;
+				cell2.innerHTML = document.getElementById("namabrg").value;
+				cell3.innerHTML = document.getElementById("satuan").value;
+                cell4.innerHTML = document.getElementById("hargabrg").value;
+                cell5.innerHTML = document.getElementById("jumlah").value;
+				var subtotal = document.getElementById("hargabrg").value *
+					document.getElementById("jumlah").value;				
+                cell6.innerHTML = subtotal;
+                cell7.innerHTML = "<button onclick=\"deleteRow('id"+panjang+"')\">x</button>";
+                total();
+			}
+            function deleteRow(rowid){
+                console.log(rowid);
+                var row = document.getElementById(rowid);
+                row.remove();
+                total();
+            }
+            function total(){
+                var table = document.getElementById("myTable");
+                var panjang = table.rows.length;
+                var total = 0;
+                for (let i=1;i<panjang;i++){
+                    var x = table.rows[i].cells;
+                    total = total+Number(x[5].innerHTML);
+                }
+                console.log(total);
+                document.getElementById("total").innerHTML = total
+            }
+        </script>
+        
+</body>
+</html>

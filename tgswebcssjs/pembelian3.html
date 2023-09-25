@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <style>
+        body {
+        padding: 1rem;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+        .awal input[type=text]{
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid red;
+            background-color: rgb(170, 167, 163);
+            color: black;
+            outline: none;
+            width: 500px;
+        }
+
+        label {
+            width: 200px;
+            padding-right: 24px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        form label {
+            display: block;
+        }
+        form p {
+            margin: 0;
+        }
+
+        .mid input[type=text], .mid select{
+            margin-bottom : 15px;
+        }
+        .awal select{
+            background-color: rgb(170, 167, 163);
+            width: 500px;
+            padding: 12px 20px;
+        }
+
+        input{
+            padding: 5px;
+            margin: 8px;
+            border: black;
+            border-bottom: 2px solid red;
+            background-color: white;
+            color: black;
+            outline: none;
+            width: 100px;
+        }
+
+        table{
+            border-collapse: separate;
+            width:60%;  
+            height: 100%;
+        }
+        th {
+            background-color:  #206bc2;
+            color: rgb(180, 221, 84);
+            text-align: center;
+            border: 1px solid #161616;
+            padding: 8px;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        select{
+            background-color: rgb(255, 255, 255);
+            width: 100px;
+            padding: 10px 12px;
+            margin: 8px;
+        }
+        tr:hover {background-color: rgb(51, 49, 196);}
+        button{
+            background: linear-gradient(45deg, rgb(117,202,206) 0%, rgb(85,164,114) 58%, rgb(17,148,197) 100%);
+            border: 1px solid aquamarine;
+            padding: 5px 7px;
+            margin: 3px;
+            color: azure;
+        }
+        </style>
+</head>
+<body>
+        <h2>Insert</h2>
+      <div class="awal">
+        <form>
+            <p>
+            <label for="kode">Kode:</label>
+            <input type="text" id="kode" name="kode" readonly>
+            </p>
+            <p>
+            <label for="kar">Karyawan:</label>
+            <select id="karyawan" name="karyawan" >
+                <option value="agus">Agus</option>
+                <option value="oky">Oky</option>
+                <option value="sulis">Sulis</option>
+            </select>
+            </p>
+            <p>
+            <label for="tgl">Tanggal:</label>
+            <input type="text" id="tgl" name="tgl" readonly>
+            </p>
+            <p>
+            <label for="jabatan">Jabatan:</label>
+            <input type="text" id="jabatan" name="jabatan" readonly>
+            </p>
+            <div class="mid">
+            <label for="supp">Supplier:</label>
+            <select id="supplier" name="supplier" >
+                <option value="ptx">PTX</option>
+                <option value="pty">PTY</option>
+                <option value="ptd">PTD</option>
+            </select>
+            <label for="telp">Telpon:</label>
+            <input type="text" id="telpon" name="telpon" readonly>
+            <label for="almt">Alamat:</label>
+            <input type="text" id="alamat" name="alamat" readonly><br><br>
+        </div>
+        </form>
+    </div>
+            <label for="kodebrg">Kode:</label>
+            <select id="kodebrg" name="kodebrg">
+                <option value="M001">M001</option>
+                <option value="M002">M002</option>
+                <option value="M003">M003</option>
+                <option value="M004">M004</option>
+            </select>
+            <label for="nmbrg">Nama:</label>
+            <input type="text" id="namabrg" name="namabrg" readonly>
+            <label>Satuan:</label>
+            <input type="text" id="satuan" name="satuan" readonly>
+            <label for="hrgabrg">Harga:</label>
+            <input type="number" id="hargabrg" name="harga" readonly>
+            <label for="jml">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah"  ><br><br>
+            <button type="button" id="save">Save</button>
+
+        <table border="1" id="myTable">
+            <theader>
+            <tr>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Satuan</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+            </theader>
+            <tbody id="tbody">
+
+            </tbody>
+            <tfoot border="0">
+                <td class="nama" colspan="4">Total:</td>
+                <td><label id="jumlahlbl"></label></td>
+                <td><label id="totallbl"></label></td>
+            </tfoot>
+        </table>
+        <br>
+    
+    <script>
+
+            $(document).ready(function(){
+                const now = new Date();
+
+                const kodewaktu = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+                const waktu = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;
+
+                const kodee = $('#kode');
+                kodee.val(kodewaktu);
+                const tgl = $('#tgl');
+                tgl.val(waktu);
+                $("#supplier").change(function(){
+                if($("#supplier").val() == "ptx")
+                {
+                    $('#telpon').val('08166622211');
+                    $('#alamat').val('Lamongan, Jawa Timur');
+                }
+                else if($("#supplier").val()=="pty")
+                {
+                    $('#telpon').val('08233355522');
+                    $('#alamat').val('Sidoarjo, Jawa Timur');
+                }
+                else if($("#supplier").val()=="ptd")
+                {
+                    $('#telpon').val('08988866644');
+                    $('#alamat').val('Surabaya, Jawa Timur');
+                }
+                });
+
+                $("#karyawan").change(function(){
+                if($("#karyawan").val() == "agus")
+                {
+                    $('#jabatan').val('Admin');
+                }
+                else if($("#karyawan").val()=="oky")
+                {
+                    $('#jabatan').val('Operator');
+                }
+                else if($("#karyawan").val()=="sulis")
+                {
+                    $('#jabatan').val('Supervisor');
+                }
+                });
+
+                $("#kodebrg").change(function(){
+                if($("#kodebrg").val() == "M001")
+                {
+                    $('#namabrg').val('CPU');
+                    $('#satuan').val('pcs');
+                    $('#hargabrg').val('2000');
+                }
+                else if($("#kodebrg").val()=="M002")
+                {
+                    $('#namabrg').val('VGA');
+                    $('#satuan').val('pcs');
+                    $('#hargabrg').val('3000');
+                }
+                else if($("#kodebrg").val()=="M003")
+                {
+                    $('#namabrg').val('RAM');
+                    $('#satuan').val('pcs');
+                    $('#hargabrg').val('1000');
+                }
+                else if($("#kodebrg").val()=="M004")
+                {
+                    $('#namabrg').val('SAMSUNG');
+                    $('#satuan').val('pcs');
+                    $('#hargabrg').val('4000');
+                }
+            });
+                var jumlahh=0;
+                var totall=0;
+            $("#save").click(function(){
+                jumlahh=0;
+                totall=0;
+                var panjang = $('#tbody tr').length;
+                var kode =$('#kodebrg').val();
+                var nama =$('#namabrg').val(); 
+                var satuan =$('#satuan').val();
+                var harga =$('#hargabrg').val();
+                var jumlah =$('#jumlah').val();
+                var total = $('#jumlah').val() * $('#hargabrg').val();
+                $('#tbody').append("<tr><td>"+kode+"</td><td>"+nama+"</td><td>"+satuan+"</td><td>"+harga+"</td><td>"+jumlah+"</td><td>"+total+"</td><td><button id=\"id"+panjang+"\" class=\"remove\">x</button></tr>");
+                console.log(panjang);
+                $('#tbody tr').each(function() {    
+                var currentRow=$(this);
+                jumlahh=jumlahh+Number(currentRow.find("td:eq(4)").text());
+                totall=totall+Number(currentRow.find("td:eq(5)").text());
+                });
+                $("#jumlahlbl").text(jumlahh);
+                $("#totallbl").text(totall);
+                });
+                $('#tbody').on('click','.remove',function(){
+                    jumlahh=0;
+                    totall=0;
+                    var id = $(this).attr('id');
+                    console.log(id);
+                    $(this).closest('tr').remove();
+                    $('#tbody tr').each(function(){
+                        var currentRow=$(this);
+                        jumlahh=jumlahh+Number(currentRow.find("td:eq(4)").text());
+                        totall=totall+Number(currentRow.find("td:eq(5)").text());
+                    });
+                    $("#jumlahlbl").text(jumlahh);
+                    $("#totallbl").text(totall);
+                });
+        });
+    </script>
+</body>
+</html>

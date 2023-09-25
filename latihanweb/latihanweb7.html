@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Form Belajar</hl>
+            <form action="#" target="_blank" method="post" autocomplete="on" >
+                <label for="kode">Kode:</label><br>
+                <input type="text" id="kode" name="kode" placeholder="1234"><br>
+                <label for="nama">Nama:</label><br>
+                <input type="text" id="nama" name="nama" placeholder="Adi"><br>
+                <fieldset>
+                <legend>Mata Pelajaran:</legend>
+                <label for="pilih">Pilih Pelajaran 1:</label><br>
+                <input type="radio" id="php" name="PHP" >
+                <label for="php">PHP</label><br>
+                <input type="radio" id="python" name="pilih" value="PYTHON">
+                <label for="python">PYTHON</label><br>
+                <input type="radio" id="java" name="pilih" value="JAVA">
+                <label for="java">Java</label>
+                
+                <br><label for="pilih">Pilih Pelajaran Wajib 2:</label><br>
+                <input type="checkbox" id="html" name="html" values="HTML">
+                <label for="html"> HTML </label><br>
+                <input type="checkbox" id="css" name="css" values="CSS">
+                <label for="css"> CSS </label><br>
+                <input type="checkbox" id="js" name="js" value="JS">
+                <label for="is"> JS</label>
+                <br>
+                <label for="model">Level Belajar: </label>
+            <select id="model" name="model">
+                <option value="Dasar">Dasar</option>
+                <option value="Menengah">Menengah</option>
+                <option value="Lanjut">Lanjut </option>
+            </select>
+            </fieldset>
+             <br>
+                <label for="keterangan">Keterangan :</label> <br>
+                <textarea name="keterangan" rows="10" cols="30">
+            Kami dengan ini ....
+            </textarea>
+            <br>
+            <label>Pilih file untuk upload : </label>
+                <input type="file" name="filefoto">
+              <br> <br><input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
